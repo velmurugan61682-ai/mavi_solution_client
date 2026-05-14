@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-midnight text-slate-100 antialiased;
+    font-family: Inter, system-ui, sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/5 border border-white/10 backdrop-blur-xl shadow-glass;
+  }
+  .glow-btn {
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet via-cyan to-violet px-7 py-3 text-sm font-semibold text-white shadow-glow transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(124,77,255,0.45)];
+  }
+  .floating-sphere {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(42px);
+    opacity: 0.65;
+  }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+}
+
+@keyframes floatX {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(18px); }
+}
+
+.floating {
+  animation: floatY 8s ease-in-out infinite;
+}
+
+.floating-slow {
+  animation: floatY 14s ease-in-out infinite;
+}
+
+.section-heading {
+  @apply text-slate-50 font-semibold tracking-[0.24em] uppercase text-xs mb-4;
+}
